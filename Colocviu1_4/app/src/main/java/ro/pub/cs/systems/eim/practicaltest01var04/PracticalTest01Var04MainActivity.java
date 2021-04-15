@@ -18,8 +18,7 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
     private CheckBox name_check;
     private EditText group;
     private CheckBox group_check;
-    int check1 = 0;
-    int check2 = 0;
+    String displayText="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +30,20 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
         display_information_text = (TextView) findViewById(R.id.display_information_text);
 
         display_information = (Button) findViewById(R.id.display_information);
-        //display_information.setOnClickListener(buttonClickListener);
+        display_information.setOnClickListener(buttonClickListener);
 
         name = (EditText) findViewById(R.id.name);
+        name.setOnClickListener(buttonClickListener);
 
         name_check = (CheckBox) findViewById(R.id.name_check);
+        name_check.setOnClickListener(buttonClickListener);
 
         group = (EditText) findViewById(R.id.group);
+        group.setOnClickListener(buttonClickListener);
 
         group_check = (CheckBox) findViewById(R.id.group_check);
+        group_check.setOnClickListener(buttonClickListener);
+
 
         if (savedInstanceState != null) {
             {
@@ -71,12 +75,17 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             String nume = name.getText().toString();
             String grupa = group.getText().toString();
-           // String viewText = display_information_text.getText().toString();
 
-
-            if(view.getId() == R.id.display_information && group_check.isChecked() && name_check.isChecked()) {
-                
+            if(view.getId() == R.id.display_information && name_check.isChecked()) {
+                displayText = displayText + nume;
             }
+
+            if(view.getId() == R.id.display_information && group_check.isChecked()) {
+                displayText = displayText + grupa;
+            }
+
+            display_information_text.setText(displayText);
+            displayText="";
 
         }
     }
