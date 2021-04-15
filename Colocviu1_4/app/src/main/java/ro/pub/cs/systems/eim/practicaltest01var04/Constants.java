@@ -5,4 +5,5 @@ public interface Constants {
     final public static String GROUP_EDIT_TEXT   = "grupa";
     final public static String REMEMBER_NAME = "name_check";
     final public static String REMEMBER_GROUP = "group_check";
+    final public static String NUME = "nume1";
 }

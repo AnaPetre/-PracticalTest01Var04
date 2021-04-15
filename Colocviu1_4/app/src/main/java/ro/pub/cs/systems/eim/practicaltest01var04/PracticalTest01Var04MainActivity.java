@@ -27,6 +27,7 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_practical_test01_var04_main);
 
         navigate_to_second_activity = (Button) findViewById(R.id.navigate_to_second_activity);
+        navigate_to_second_activity.setOnClickListener(buttonClickListener);
 
         display_information_text = (TextView) findViewById(R.id.display_information_text);
 
@@ -87,6 +88,9 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
 
             if (view.getId() == R.id.navigate_to_second_activity) {
                 Intent intent = new Intent(getApplicationContext(), PracticalTest01Var04SecondaryActivity.class);
+                String nume1 = name.getText().toString();
+                String grupa2 = group.getText().toString();
+                intent.putExtra(Constants.NUME, nume1);
             }
 
             display_information_text.setText(displayText);
